@@ -31,19 +31,19 @@ function App() {
   };
 
   const handleAddExpense = (expense) => {
-    if (expense.price > balance) {
+    if (expense.amount > balance) {
       alert('Insufficient balance!');
       return;
     }
 
-    setExpenses((prev) => [...prev, { ...expense, id: Date.now() }]);
-    setBalance((prev) => prev - expense.price);
+    setExpenses((prev) => [...prev, expense]);
+    setBalance((prev) => prev - expense.amount);
   };
 
   const handleDelete = (id) => {
     const exp = expenses.find((e) => e.id === id);
     setExpenses((prev) => prev.filter((e) => e.id !== id));
-    setBalance((prev) => prev + exp.price);
+    setBalance((prev) => prev + exp.amount);
   };
 
   return (

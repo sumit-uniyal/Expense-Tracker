@@ -2,7 +2,7 @@ function TopExpenses({ expenses }) {
   const data = { Food: 0, Entertainment: 0, Travel: 0 };
 
   expenses.forEach((e) => {
-    data[e.category] += e.price;
+    data[e.category] += Number(e.amount);
   });
 
   return (

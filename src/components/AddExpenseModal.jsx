@@ -3,7 +3,7 @@ import { useState } from 'react';
 function AddExpenseModal({ onClose, onAdd }) {
   const [form, setForm] = useState({
     title: '',
-    price: '',
+    amount: '',
     category: '',
     date: '',
   });
@@ -11,12 +11,17 @@ function AddExpenseModal({ onClose, onAdd }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    onAdd({
-      ...form,
-      price: Number(form.price),
-    });
+    const newExpense = {
+      id: Date.now(),
+      title: form.title,
+      amount: Number(form.amount),
+      category: form.category,
+      date: form.date,
+    };
 
-    setForm({ title: '', price: '', category: '', date: '' });
+    onAdd(newExpense);
+
+    setForm({ title: '', amount: '', category: '', date: '' });
     onClose();
   };
 
@@ -37,8 +42,8 @@ function AddExpenseModal({ onClose, onAdd }) {
           name="price"
           type="number"
           placeholder="Price"
-          value={form.price}
-          onChange={(e) => setForm({ ...form, price: e.target.value })}
+          value={form.amount}
+          onChange={(e) => setForm({ ...form, amount: e.target.value })}
           required
         />
 

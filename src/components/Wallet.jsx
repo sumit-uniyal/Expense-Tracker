@@ -1,5 +1,5 @@
 function Wallet({ balance, openBalanceModal, openExpenseModal, expenses }) {
-  const totalExpense = expenses.reduce((acc, e) => acc + e.price, 0);
+  const totalExpense = expenses.reduce((acc, e) => acc + Number(e.amount), 0);
 
   return (
     <div className="wallet-container">
