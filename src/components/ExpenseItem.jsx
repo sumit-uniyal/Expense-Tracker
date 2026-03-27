@@ -7,7 +7,7 @@ function ExpenseItem({ exp, handleDelete }) {
       </div>
 
       <div>
-        <span>₹{exp.price}</span>
+        <span>${exp.price.toFixed(2)}</span>
         <button onClick={() => handleDelete(exp.id)}>❌</button>
       </div>
     </div>

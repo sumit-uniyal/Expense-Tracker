@@ -4,14 +4,14 @@ function Wallet({ balance, openBalanceModal, openExpenseModal, expenses }) {
   return (
     <div className="wallet-container">
       <div className="card">
-        <h2>Wallet Balance: ₹{balance}</h2>
+        <h2>Wallet Balance: ${balance.toFixed(2)}</h2>
         <button type="button" onClick={openBalanceModal}>
           + Add Income
         </button>
       </div>
 
       <div className="card">
-        <h2>Expenses: ₹{totalExpense}</h2>
+        <h2>Expenses: ${totalExpense.toFixed(2)}</h2>
         <button type="button" onClick={openExpenseModal}>
           + Add Expense
         </button>
